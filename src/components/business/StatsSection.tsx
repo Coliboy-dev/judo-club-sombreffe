@@ -20,11 +20,15 @@ const stats = [
 
 export function StatsSection() {
   return (
-    <section className="relative bg-primary-dark overflow-hidden" id="chiffres">
-      {/* Texture tatami */}
-      <div className="absolute inset-0 tatami-pattern" aria-hidden="true" />
+    <section
+      className="relative overflow-hidden"
+      id="chiffres"
+      style={{ background: "var(--color-sand-light)" }}
+    >
+      {/* Texture sable */}
+      <div className="absolute inset-0 sand-pattern" aria-hidden="true" />
 
-      {/* Ligne accent en haut */}
+      {/* Liseré top en rouge */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-accent" aria-hidden="true" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
@@ -37,13 +41,13 @@ export function StatsSection() {
                 "py-10 lg:py-12 px-6 lg:px-10",
                 "animate-fade-in",
                 i < stats.length - 1
-                  ? "border-b sm:border-b-0 sm:border-r border-white/10"
+                  ? "border-b sm:border-b-0 sm:border-r border-sand"
                   : "",
               ].join(" ")}
-              style={{ animationDelay: `${i * 0.15}s` }}
+              style={{ animationDelay: `${i * 0.15}s`, borderColor: "var(--color-sand)" }}
             >
               <div className="flex items-baseline gap-3">
-                <dt className="font-display text-7xl lg:text-8xl xl:text-9xl text-white leading-none tabular-nums">
+                <dt className="font-display text-7xl lg:text-8xl xl:text-9xl text-primary leading-none tabular-nums">
                   {value}
                 </dt>
                 {unit && (
@@ -52,7 +56,7 @@ export function StatsSection() {
                   </span>
                 )}
               </div>
-              <dd className="text-sm text-white/60 leading-relaxed max-w-xs">
+              <dd className="text-sm leading-relaxed max-w-xs" style={{ color: "var(--color-neutral-600)" }}>
                 {label}
               </dd>
             </div>

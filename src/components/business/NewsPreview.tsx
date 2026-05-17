@@ -20,13 +20,17 @@ export function NewsPreview() {
           </li>
         ))}
       </ul>
-      <div className="mt-12 flex items-center justify-between border-t border-neutral-200 pt-8">
-        <p className="text-sm text-neutral-500">
+      <div
+        className="mt-12 flex items-center justify-between border-t pt-8"
+        style={{ borderColor: "var(--color-neutral-200)" }}
+      >
+        <p className="text-sm" style={{ color: "var(--color-neutral-500)" }}>
           {newsItems.length} actualités publiées
         </p>
         <Link
           href="/actualites"
-          className="inline-flex items-center gap-2 text-xs font-bold text-accent hover:text-accent-dark transition-colors focus-visible:outline-none focus-visible:underline uppercase tracking-widest"
+          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest transition-colors focus-visible:outline-none focus-visible:underline"
+          style={{ color: "var(--color-accent)" }}
         >
           Toutes les actualités
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

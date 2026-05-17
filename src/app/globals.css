@@ -1,36 +1,46 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Couleurs */
+  /* Couleurs principales */
   --color-primary: #1B2A4A;
   --color-primary-light: #2D4270;
   --color-primary-dark: #111D33;
+
+  /* Rouge */
   --color-accent: #C0392B;
   --color-accent-light: #E74C3C;
   --color-accent-dark: #96281B;
-  --color-ivoire: #F1EFE8;
-  --color-ivoire-dark: #E8E5DC;
+
+  /* Sable & ivoire — identité chaleur */
+  --color-sand: #D4B896;
+  --color-sand-light: #EDE0CE;
+  --color-sand-dark: #B8956A;
+  --color-ivoire: #F5F1E6;
+  --color-ivoire-dark: #EDE7D8;
+  --color-warm-bg: #FAF7F0;
+
+  /* Neutres chauds (sous-ton beige, pas gris froid) */
   --color-neutral-0: #FFFFFF;
-  --color-neutral-50: #F8F9FA;
-  --color-neutral-100: #F1F3F5;
-  --color-neutral-200: #E9ECEF;
-  --color-neutral-300: #DEE2E6;
-  --color-neutral-400: #CED4DA;
-  --color-neutral-500: #ADB5BD;
-  --color-neutral-600: #6C757D;
-  --color-neutral-700: #495057;
-  --color-neutral-800: #343A40;
-  --color-neutral-900: #212529;
-  --color-neutral-950: #0D1117;
+  --color-neutral-50: #FAF8F4;
+  --color-neutral-100: #F2EDE4;
+  --color-neutral-200: #E5DDD1;
+  --color-neutral-300: #D4C9BA;
+  --color-neutral-400: #B8A898;
+  --color-neutral-500: #9A8878;
+  --color-neutral-600: #7A6858;
+  --color-neutral-700: #5A4A3C;
+  --color-neutral-800: #3D2E24;
+  --color-neutral-900: #231A14;
+  --color-neutral-950: #140D08;
 
   /* Typographie */
   --font-display: var(--font-bebas-neue);
   --font-body: var(--font-inter);
 
-  /* Ombres */
-  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
-  --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.10), 0 12px 32px rgba(0,0,0,0.10);
-  --shadow-header: 0 2px 24px rgba(0,0,0,0.18);
+  /* Ombres chaudes */
+  --shadow-card: 0 1px 4px rgba(100,70,40,0.08), 0 4px 16px rgba(100,70,40,0.06);
+  --shadow-card-hover: 0 4px 12px rgba(100,70,40,0.12), 0 12px 32px rgba(100,70,40,0.10);
+  --shadow-header: 0 2px 24px rgba(27,42,74,0.20);
 }
 
 * {
@@ -70,7 +80,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-sand-dark);
 }
 
 .eyebrow::before {
@@ -82,14 +92,70 @@ body {
   flex-shrink: 0;
 }
 
-/* ── Séparateurs de section ─────────────────────────── */
+.eyebrow-accent {
+  color: var(--color-accent);
+}
+
+/* ── Séparateurs ────────────────────────────────────── */
 
 .section-rule {
   display: block;
   width: 3rem;
   height: 3px;
-  background: var(--color-accent);
+  background: var(--color-sand);
   margin-bottom: 1.5rem;
+}
+
+/* ── Texture grain — chaleur naturelle ──────────────── */
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* ── Texture tatami ─────────────────────────────────── */
+.tatami-pattern {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.04) 40px,
+      rgba(255,255,255,0.04) 41px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.04) 40px,
+      rgba(255,255,255,0.04) 41px
+    );
+}
+
+/* ── Texture sable (sections claires) ───────────────── */
+.sand-pattern {
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 8px,
+      rgba(180,140,100,0.04) 8px,
+      rgba(180,140,100,0.04) 9px
+    );
+}
+
+/* ── Hover lift pour les cartes ─────────────────────── */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
 }
 
 /* ── Animations ─────────────────────────────────────── */
@@ -104,24 +170,14 @@ body {
   to   { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes fade-in-right {
-  from { opacity: 0; transform: translateX(24px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
 @keyframes scale-in {
   from { opacity: 0; transform: scale(0.96); }
   to   { opacity: 1; transform: scale(1); }
 }
 
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes scroll-bounce {
-  0%, 100% { transform: translateY(0); opacity: 0.7; }
-  50%       { transform: translateY(6px); opacity: 1; }
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50%       { transform: translateY(7px); opacity: 1; }
 }
 
 .animate-fade-in {
@@ -132,20 +188,12 @@ body {
   animation: fade-in-left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-.animate-fade-in-right {
-  animation: fade-in-right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
 .animate-scale-in {
   animation: scale-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-.animate-slide-up {
-  animation: slide-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
 .animate-scroll-bounce {
-  animation: scroll-bounce 1.8s ease-in-out infinite;
+  animation: scroll-bounce 2s ease-in-out infinite;
 }
 
 /* Délais de stagger */
@@ -160,56 +208,10 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in,
   .animate-fade-in-left,
-  .animate-fade-in-right,
   .animate-scale-in,
-  .animate-slide-up,
   .animate-scroll-bounce {
     animation: none;
     opacity: 1;
     transform: none;
   }
-}
-
-/* ── Hover lift pour les cartes ─────────────────────── */
-.card-lift {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card-lift:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-card-hover);
-}
-
-/* ── Texture tatami (patron SVG réutilisable) ───────── */
-.tatami-pattern {
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 40px,
-      rgba(255,255,255,0.06) 40px,
-      rgba(255,255,255,0.06) 41px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 40px,
-      rgba(255,255,255,0.06) 40px,
-      rgba(255,255,255,0.06) 41px
-    );
-}
-
-/* ── Diagonal accent décoratif ──────────────────────── */
-.accent-diagonal {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40%;
-  height: 100%;
-  background: linear-gradient(
-    135deg,
-    transparent 50%,
-    rgba(192, 57, 43, 0.07) 50%
-  );
-  pointer-events: none;
 }

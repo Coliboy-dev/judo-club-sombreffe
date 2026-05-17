@@ -10,9 +10,14 @@ export function Card({ children, className, as: Tag = "div" }: CardProps) {
   return (
     <Tag
       className={cn(
-        "bg-white border border-neutral-100 rounded-xl shadow-sm transition-shadow duration-200 hover:shadow-md",
+        "bg-white overflow-hidden",
+        "card-lift",
         className
       )}
+      style={{
+        border: "1px solid var(--color-neutral-200)",
+        boxShadow: "var(--shadow-card)",
+      }}
     >
       {children}
     </Tag>

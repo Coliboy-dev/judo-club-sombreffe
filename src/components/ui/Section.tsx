@@ -1,10 +1,12 @@
 import { cn } from "@/lib/utils";
 
-type Background = "white" | "light" | "dark" | "primary";
+type Background = "white" | "light" | "warm" | "dark" | "primary" | "sand";
 
 const bgClasses: Record<Background, string> = {
   white: "bg-white",
   light: "bg-ivoire",
+  warm: "bg-warm-bg",
+  sand: "bg-sand-light",
   dark: "bg-neutral-950 text-white",
   primary: "bg-primary text-white",
 };
@@ -51,11 +53,17 @@ export function SectionHeader({
       {eyebrow && (
         <p
           className={cn(
-            "eyebrow mb-5",
-            light ? "text-white/50" : "text-accent",
-            centered && "justify-center"
+            "inline-flex items-center gap-2 mb-5 text-xs font-bold uppercase tracking-[0.14em]",
+            centered && "justify-center",
+            light ? "text-sand" : "text-sand-dark"
           )}
+          style={{ color: light ? "var(--color-sand)" : "var(--color-sand-dark)" }}
         >
+          <span
+            className="inline-block w-5 h-px"
+            style={{ background: "currentColor" }}
+            aria-hidden="true"
+          />
           {eyebrow}
         </p>
       )}
@@ -72,8 +80,9 @@ export function SectionHeader({
           className={cn(
             "mt-5 text-base lg:text-lg max-w-2xl leading-relaxed",
             centered && "mx-auto",
-            light ? "text-white/60" : "text-neutral-600"
+            light ? "text-sand-light" : "text-neutral-600"
           )}
+          style={{ color: light ? "var(--color-sand-light)" : "var(--color-neutral-600)" }}
         >
           {subtitle}
         </p>
