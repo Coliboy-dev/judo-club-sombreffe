@@ -1,4 +1,3 @@
-import { Section } from "@/components/ui/Section";
 import { siteConfig } from "@/data/config";
 
 const stats = [
@@ -21,30 +20,45 @@ const stats = [
 
 export function StatsSection() {
   return (
-    <Section background="light" id="chiffres">
-      <dl className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12">
-        {stats.map(({ value, unit, label }, i) => (
-          <div
-            key={label}
-            className="flex flex-col items-center sm:items-start text-center sm:text-left gap-2 animate-fade-in"
-            style={{ animationDelay: `${i * 0.15}s` }}
-          >
-            <div className="flex items-baseline gap-2">
-              <dt className="font-display text-6xl lg:text-7xl text-primary leading-none">
-                {value}
-              </dt>
-              {unit && (
-                <span className="font-display text-xl lg:text-2xl text-accent uppercase">
-                  {unit}
-                </span>
-              )}
+    <section className="relative bg-primary-dark overflow-hidden" id="chiffres">
+      {/* Texture tatami */}
+      <div className="absolute inset-0 tatami-pattern" aria-hidden="true" />
+
+      {/* Ligne accent en haut */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-accent" aria-hidden="true" />
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <dl className="grid grid-cols-1 sm:grid-cols-3">
+          {stats.map(({ value, unit, label }, i) => (
+            <div
+              key={label}
+              className={[
+                "flex flex-col items-center sm:items-start text-center sm:text-left gap-3",
+                "py-10 lg:py-12 px-6 lg:px-10",
+                "animate-fade-in",
+                i < stats.length - 1
+                  ? "border-b sm:border-b-0 sm:border-r border-white/10"
+                  : "",
+              ].join(" ")}
+              style={{ animationDelay: `${i * 0.15}s` }}
+            >
+              <div className="flex items-baseline gap-3">
+                <dt className="font-display text-7xl lg:text-8xl xl:text-9xl text-white leading-none tabular-nums">
+                  {value}
+                </dt>
+                {unit && (
+                  <span className="font-display text-2xl lg:text-3xl text-accent uppercase leading-none">
+                    {unit}
+                  </span>
+                )}
+              </div>
+              <dd className="text-sm text-white/60 leading-relaxed max-w-xs">
+                {label}
+              </dd>
             </div>
-            <dd className="text-sm text-neutral-600 leading-relaxed max-w-xs">
-              {label}
-            </dd>
-          </div>
-        ))}
-      </dl>
-    </Section>
+          ))}
+        </dl>
+      </div>
+    </section>
   );
 }

@@ -24,7 +24,7 @@ export function Section({
 }: SectionProps) {
   return (
     <section id={id} className={cn(bgClasses[background], className)}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         {children}
       </div>
     </section>
@@ -34,6 +34,7 @@ export function Section({
 interface SectionHeaderProps {
   title: string;
   subtitle?: string;
+  eyebrow?: string;
   centered?: boolean;
   light?: boolean;
 }
@@ -41,14 +42,26 @@ interface SectionHeaderProps {
 export function SectionHeader({
   title,
   subtitle,
+  eyebrow,
   centered = false,
   light = false,
 }: SectionHeaderProps) {
   return (
-    <div className={cn("mb-12", centered && "text-center")}>
+    <div className={cn("mb-12 lg:mb-16", centered && "text-center")}>
+      {eyebrow && (
+        <p
+          className={cn(
+            "eyebrow mb-5",
+            light ? "text-white/50" : "text-accent",
+            centered && "justify-center"
+          )}
+        >
+          {eyebrow}
+        </p>
+      )}
       <h2
         className={cn(
-          "font-display text-4xl lg:text-5xl uppercase tracking-wide leading-none",
+          "font-display text-4xl lg:text-5xl xl:text-6xl uppercase tracking-wide leading-none",
           light ? "text-white" : "text-primary"
         )}
       >
@@ -57,9 +70,9 @@ export function SectionHeader({
       {subtitle && (
         <p
           className={cn(
-            "mt-4 text-lg max-w-2xl",
+            "mt-5 text-base lg:text-lg max-w-2xl leading-relaxed",
             centered && "mx-auto",
-            light ? "text-neutral-100" : "text-neutral-700"
+            light ? "text-white/60" : "text-neutral-600"
           )}
         >
           {subtitle}
