@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-turbopack)",
+      "Bash(npx create-next-app@latest temp-init --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-turbopack)",
+      "Bash(cp -r temp-init/.gitignore temp-init/eslint.config.mjs temp-init/next-env.d.ts temp-init/next.config.ts temp-init/package.json temp-init/package-lock.json temp-init/postcss.config.mjs temp-init/tsconfig.json temp-init/README.md .)",
+      "Bash(cp -r temp-init/src temp-init/public temp-init/node_modules .)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\chris\\\\judo-sombreffe\" -Recurse -Force)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(ConvertTo-Json)",
+      "Bash(Out-String)",
+      "Bash(vercel --version)",
+      "PowerShell(npm install -g vercel)",
+      "PowerShell(vercel --version)",
+      "Bash(npm root *)",
+      "Bash(node \"$\\(npm root -g\\)/vercel/dist/index.js\" --version)",
+      "Bash(node \"%APPDATA%/npm/node_modules/vercel/dist/index.js\" --version)",
+      "Bash(ls \"C:/Users/chris/AppData/Roaming/npm/node_modules/\" 2>&1 | head -20)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(rm -rf \"C:/Users/chris/AppData/Roaming/npm/node_modules/netlify-cli\" 2>&1 && echo \"Supprimé\")",
+      "Bash(node scripts/netlify-build.js)",
+      "Bash(npx tsc *)",
+      "WebSearch",
+      "WebFetch(domain:www.judowb.be)",
+      "WebFetch(domain:www.judoclubnamurois.be)",
+      "WebFetch(domain:www.eaubonnejudo.com)",
+      "Bash(cp \"/c/Users/chris/Downloads/Judo_Club_Sombreffe_Logo.svg\" \"/c/Users/chris/judo-sombreffe/public/logo.svg\")",
+      "Bash(vercel --prod)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "WebFetch(domain:sankuno.com)"
+    ]
+  }
+}

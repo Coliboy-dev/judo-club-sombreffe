@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <rect width="128" height="128" fill="#1B2A4A"/>
+  <!-- Silhouette tête -->
+  <circle cx="64" cy="44" r="22" fill="#2D4270"/>
+  <!-- Silhouette corps / judogi -->
+  <path d="M20 128 C20 92 36 80 64 80 C92 80 108 92 108 128Z" fill="#2D4270"/>
+  <!-- Ceinture accent -->
+  <rect x="44" y="82" width="40" height="5" rx="1" fill="#C0392B"/>
+</svg>

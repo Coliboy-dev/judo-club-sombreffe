@@ -1,0 +1,15 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/actualites/page": "app/actualites/page.js",
+  "/confidentialite/page": "app/confidentialite/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/le-club/page": "app/le-club/page.js",
+  "/nos-cours/page": "app/nos-cours/page.js",
+  "/opengraph-image/route": "app-edge-has-no-entrypoint",
+  "/page": "app/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/showcase/page": "app/showcase/page.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js"
+}

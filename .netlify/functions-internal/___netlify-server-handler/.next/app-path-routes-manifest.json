@@ -1,0 +1,15 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/actualites/page": "/actualites",
+  "/confidentialite/page": "/confidentialite",
+  "/contact/page": "/contact",
+  "/favicon.ico/route": "/favicon.ico",
+  "/le-club/page": "/le-club",
+  "/nos-cours/page": "/nos-cours",
+  "/opengraph-image/route": "/opengraph-image",
+  "/page": "/",
+  "/robots.txt/route": "/robots.txt",
+  "/showcase/page": "/showcase",
+  "/sitemap.xml/route": "/sitemap.xml"
+}
