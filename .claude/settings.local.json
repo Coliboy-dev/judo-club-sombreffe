@@ -29,7 +29,8 @@
       "Bash(cp \"/c/Users/chris/Downloads/Judo_Club_Sombreffe_Logo.svg\" \"/c/Users/chris/judo-sombreffe/public/logo.svg\")",
       "Bash(vercel --prod)",
       "mcp__Claude_in_Chrome__tabs_context_mcp",
-      "WebFetch(domain:sankuno.com)"
+      "WebFetch(domain:sankuno.com)",
+      "mcp__magic__21st_magic_component_inspiration"
     ]
   }
 }
