@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bebas_Neue, Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { siteConfig } from "@/data/config";
 import "./globals.css";
 
 const bebasNeue = Bebas_Neue({
@@ -18,32 +19,31 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://judoclubsombreffe.be"),
-  title: "Judo Club Sombreffe | Arts martiaux à Sombreffe",
-  description:
-    "Club de judo familial à Sombreffe. Cours enfants et adultes, tous niveaux. Complexe sportif, Allée de Château-Chinon.",
+  metadataBase: new URL(siteConfig.siteUrl),
+  title: `${siteConfig.name} | Arts martiaux à ${siteConfig.addressCity}`,
+  description: `Club de ${siteConfig.sport.toLowerCase()} familial à ${siteConfig.addressCity}. Cours enfants et adultes, tous niveaux. ${siteConfig.dojoName}, ${siteConfig.addressStreet}.`,
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     locale: "fr_BE",
-    siteName: "Judo Club Sombreffe",
+    siteName: siteConfig.name,
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SportsOrganization",
-  name: "Judo Club Sombreffe",
-  url: "https://judoclubsombreffe.be",
-  sport: "Judo",
+  name: siteConfig.name,
+  url: siteConfig.siteUrl,
+  sport: siteConfig.sport,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Allée de Château-Chinon 6",
-    addressLocality: "Sombreffe",
-    postalCode: "5140",
-    addressCountry: "BE",
+    streetAddress: siteConfig.addressStreet,
+    addressLocality: siteConfig.addressCity,
+    postalCode: siteConfig.addressPostalCode,
+    addressCountry: siteConfig.addressCountry,
   },
-  sameAs: ["https://www.facebook.com/p/Judo-Club-Sombreffe-100063579276894/"],
+  sameAs: [siteConfig.facebook],
 };
 
 export default function RootLayout({

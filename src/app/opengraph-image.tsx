@@ -1,15 +1,18 @@
 import { ImageResponse } from "next/og";
+import { siteConfig } from "@/data/config";
 
 export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OgImage() {
+  const siteHost = siteConfig.siteUrl.replace("https://", "");
+
   return new ImageResponse(
     (
       <div
         style={{
-          background: "#1B2A4A",
+          background: siteConfig.colors.primary,
           width: "100%",
           height: "100%",
           display: "flex",
@@ -29,7 +32,7 @@ export default function OgImage() {
             top: 0,
             bottom: 0,
             width: 10,
-            background: "#C0392B",
+            background: siteConfig.colors.accent,
           }}
         />
 
@@ -37,17 +40,17 @@ export default function OgImage() {
         <div
           style={{
             fontSize: 20,
-            color: "#C0392B",
+            color: siteConfig.colors.accent,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
             marginBottom: 32,
             fontWeight: 700,
           }}
         >
-          Province de Namur — Belgique
+          {siteConfig.region} — {siteConfig.country}
         </div>
 
-        {/* Titre principal */}
+        {/* Titre principal — lignes 1 et 2 */}
         <div
           style={{
             fontSize: 100,
@@ -58,12 +61,13 @@ export default function OgImage() {
             letterSpacing: "0.04em",
           }}
         >
-          JUDO CLUB
+          {siteConfig.heroLines[0].toUpperCase()} {siteConfig.heroLines[1].toUpperCase()}
         </div>
+        {/* Ligne 3 en accent */}
         <div
           style={{
             fontSize: 100,
-            color: "#C0392B",
+            color: siteConfig.colors.accent,
             fontWeight: 900,
             lineHeight: 1,
             textTransform: "uppercase",
@@ -71,7 +75,7 @@ export default function OgImage() {
             marginBottom: 48,
           }}
         >
-          SOMBREFFE
+          {siteConfig.heroLines[2].toUpperCase()}
         </div>
 
         {/* Accroche */}
@@ -83,7 +87,7 @@ export default function OgImage() {
             lineHeight: 1.5,
           }}
         >
-          Club de judo familial · Cours enfants dès 5 ans & adultes · Premier cours offert
+          {siteConfig.description}
         </div>
 
         {/* URL */}
@@ -97,7 +101,7 @@ export default function OgImage() {
             letterSpacing: "0.05em",
           }}
         >
-          judoclubsombreffe.be
+          {siteHost}
         </div>
       </div>
     ),

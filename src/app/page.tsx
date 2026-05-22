@@ -4,29 +4,28 @@ import { StatsSection } from "@/components/business/StatsSection";
 import { SchedulePreview } from "@/components/business/SchedulePreview";
 import { NewsPreview } from "@/components/business/NewsPreview";
 import { JoinSection } from "@/components/business/JoinSection";
+import { siteConfig } from "@/data/config";
+import { seoPages } from "@/data/seo";
 
 export const metadata: Metadata = {
-  title: "Judo Club Sombreffe | Arts martiaux à Sombreffe",
-  description:
-    "Club de judo familial à Sombreffe. Cours enfants dès 5 ans et adultes tous niveaux. Premier cours gratuit. Complexe sportif, Allée de Château-Chinon.",
+  title: seoPages.home.title,
+  description: seoPages.home.description,
   alternates: {
-    canonical: "https://judoclubsombreffe.be/",
+    canonical: `${siteConfig.siteUrl}/`,
   },
   openGraph: {
     type: "website",
     locale: "fr_BE",
-    url: "https://judoclubsombreffe.be/",
-    siteName: "Judo Club Sombreffe",
-    title: "Judo Club Sombreffe | Arts martiaux à Sombreffe",
-    description:
-      "Club de judo familial à Sombreffe. Cours enfants dès 5 ans et adultes tous niveaux. Premier cours gratuit.",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Judo Club Sombreffe" }],
+    url: `${siteConfig.siteUrl}/`,
+    siteName: siteConfig.name,
+    title: seoPages.home.title,
+    description: seoPages.home.description,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: siteConfig.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Judo Club Sombreffe | Arts martiaux à Sombreffe",
-    description:
-      "Club de judo familial à Sombreffe. Cours enfants dès 5 ans et adultes tous niveaux. Premier cours gratuit.",
+    title: seoPages.home.title,
+    description: seoPages.home.description,
     images: ["/opengraph-image"],
   },
 };

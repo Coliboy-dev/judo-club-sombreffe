@@ -1,37 +1,5 @@
 @import "tailwindcss";
-
-@theme inline {
-  /* Couleurs */
-  --color-primary: #1B2A4A;
-  --color-primary-light: #2D4270;
-  --color-primary-dark: #111D33;
-  --color-accent: #C0392B;
-  --color-accent-light: #E74C3C;
-  --color-accent-dark: #96281B;
-  --color-ivoire: #F1EFE8;
-  --color-ivoire-dark: #E8E5DC;
-  --color-neutral-0: #FFFFFF;
-  --color-neutral-50: #F8F9FA;
-  --color-neutral-100: #F1F3F5;
-  --color-neutral-200: #E9ECEF;
-  --color-neutral-300: #DEE2E6;
-  --color-neutral-400: #CED4DA;
-  --color-neutral-500: #ADB5BD;
-  --color-neutral-600: #6C757D;
-  --color-neutral-700: #495057;
-  --color-neutral-800: #343A40;
-  --color-neutral-900: #212529;
-  --color-neutral-950: #0D1117;
-
-  /* Typographie */
-  --font-display: var(--font-bebas-neue);
-  --font-body: var(--font-inter);
-
-  /* Ombres */
-  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
-  --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.10), 0 12px 32px rgba(0,0,0,0.10);
-  --shadow-header: 0 2px 24px rgba(0,0,0,0.18);
-}
+@import "../styles/theme.css";
 
 * {
   box-sizing: border-box;

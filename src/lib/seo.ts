@@ -8,7 +8,7 @@ interface SeoParams {
 }
 
 export function buildMetadata({ title, description, path = "" }: SeoParams): Metadata {
-  const url = `https://judoclubsombreffe.be${path}`;
+  const url = `${siteConfig.siteUrl}${path}`;
   const fullTitle = `${title} | ${siteConfig.name}`;
   return {
     title: fullTitle,

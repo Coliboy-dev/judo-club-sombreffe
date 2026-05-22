@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/data/config";
 
 export const dynamic = "force-static";
 
-const BASE_URL = "https://judoclubsombreffe.be";
+const BASE_URL = siteConfig.siteUrl;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

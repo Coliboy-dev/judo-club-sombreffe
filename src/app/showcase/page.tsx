@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card, CardBody } from "@/components/ui/Card";
 import { Section, SectionHeader } from "@/components/ui/Section";
+import { siteConfig } from "@/data/config";
 
 export default function ShowcasePage() {
   if (process.env.NODE_ENV === "production") notFound();
@@ -15,7 +16,7 @@ export default function ShowcasePage() {
           <div>
             <p className="text-xs text-neutral-600 uppercase tracking-widest mb-2">Display Hero</p>
             <p className="font-display text-6xl lg:text-8xl uppercase text-primary leading-none">
-              Judo Club
+              {siteConfig.shortName}
             </p>
           </div>
           <div>
@@ -27,7 +28,7 @@ export default function ShowcasePage() {
           <div>
             <p className="text-xs text-neutral-600 uppercase tracking-widest mb-2">Display H2</p>
             <p className="font-display text-3xl lg:text-5xl uppercase text-primary leading-none">
-              Province de Namur
+              {siteConfig.region}
             </p>
           </div>
           <div>

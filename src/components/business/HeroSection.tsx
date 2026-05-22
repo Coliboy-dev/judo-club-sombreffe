@@ -24,7 +24,7 @@ export function HeroSection() {
         <div className="max-w-3xl">
           {/* Eyebrow */}
           <p className="eyebrow animate-fade-in-left text-neutral-400 mb-8">
-            Province de Namur — Belgique
+            {siteConfig.region} — {siteConfig.country}
           </p>
 
           {/* Titre héro */}
@@ -32,17 +32,17 @@ export function HeroSection() {
             <span
               className="block text-6xl sm:text-8xl lg:text-[108px] tracking-wide animate-fade-in stagger-1"
             >
-              Judo
+              {siteConfig.heroLines[0]}
             </span>
             <span
               className="block text-6xl sm:text-8xl lg:text-[108px] tracking-wide text-accent animate-fade-in stagger-2"
             >
-              Club
+              {siteConfig.heroLines[1]}
             </span>
             <span
               className="block text-6xl sm:text-8xl lg:text-[108px] tracking-wide animate-fade-in stagger-3"
             >
-              Sombreffe
+              {siteConfig.heroLines[2]}
             </span>
           </h1>
 

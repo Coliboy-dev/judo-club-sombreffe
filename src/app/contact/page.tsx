@@ -3,12 +3,12 @@ import { Section, SectionHeader } from "@/components/ui/Section";
 import { ContactForm } from "@/components/business/ContactForm";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/data/config";
+import { seoPages } from "@/data/seo";
 
 export async function generateMetadata() {
   return buildMetadata({
-    title: "Contact",
-    description:
-      "Contactez le Judo Club Sombreffe. Inscriptions, cours d'essai gratuit et informations pratiques.",
+    title: seoPages.contact.title,
+    description: seoPages.contact.description,
     path: "/contact",
   });
 }
@@ -22,11 +22,7 @@ const practicalInfo = [
   {
     icon: Clock,
     title: "Entraînements",
-    lines: [
-      "Mercredi & Vendredi 17h30 – 18h30 (Enfants)",
-      "Mercredi & Vendredi 18h30 – 20h00 (Ados & Adultes)",
-      "Samedi 10h30 – 12h00 (Tous niveaux)",
-    ],
+    lines: siteConfig.scheduleDisplay.detailed,
   },
   {
     icon: Phone,
@@ -96,15 +92,15 @@ export default function ContactPage() {
                 href={siteConfig.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Page Facebook du Judo Club Sombreffe (nouvel onglet)"
+                aria-label={`Page Facebook du ${siteConfig.name} (nouvel onglet)`}
                 className="inline-flex items-center gap-2 text-sm text-primary hover:text-accent font-semibold transition-colors focus-visible:outline-none focus-visible:underline"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                 </svg>
-                Judo Club Sombreffe sur Facebook
+                {siteConfig.facebookLabel}
               </a>
-              <p className="text-xs text-neutral-400 mt-1">569 abonnés</p>
+              <p className="text-xs text-neutral-400 mt-1">{siteConfig.facebookFollowers}</p>
             </div>
           </aside>
         </div>
@@ -114,15 +110,15 @@ export default function ContactPage() {
       <Section background="light">
         <SectionHeader
           title="Nous trouver"
-          subtitle="Complexe sportif de Sombreffe, facilement accessible en voiture et en transports."
+          subtitle={`${siteConfig.dojoName}, facilement accessible en voiture et en transports.`}
         />
         <div className="bg-primary-light aspect-video max-w-3xl flex items-center justify-center border border-neutral-200">
           <div className="text-center px-6">
             <MapPin size={48} className="text-accent mx-auto mb-4" aria-hidden="true" />
-            <p className="text-white font-semibold">Complexe sportif de Sombreffe</p>
+            <p className="text-white font-semibold">{siteConfig.dojoName}</p>
             <p className="text-neutral-200 text-sm mt-1">{siteConfig.address}</p>
             <a
-              href="https://maps.google.com/?q=Allée+de+Château-Chinon+6,+5140+Sombreffe"
+              href={siteConfig.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-block px-6 py-2.5 bg-accent text-white text-sm font-semibold uppercase tracking-wide hover:bg-accent-light transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"

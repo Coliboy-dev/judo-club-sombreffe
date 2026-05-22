@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { siteConfig } from "@/data/config";
 
 export function JoinSection() {
   return (
@@ -29,9 +30,9 @@ export function JoinSection() {
             </div>
 
             <p className="mt-6 text-lg text-white/80 leading-relaxed">
-              La meilleure façon de savoir si le judo vous convient, c&apos;est de pousser la porte du dojo.
+              La meilleure façon de savoir si le {siteConfig.sport.toLowerCase()} vous convient, c&apos;est de pousser la porte du dojo.
               Enfants, ados, adultes — tout le monde est le bienvenu, même juste pour regarder.
-              Jean-Louis prend le temps d&apos;accueillir chaque nouvelle tête.
+              {siteConfig.contactPersonName} prend le temps d&apos;accueillir chaque nouvelle tête.
             </p>
 
             <p className="mt-4 text-white/60 leading-relaxed">
@@ -58,7 +59,7 @@ export function JoinSection() {
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" strokeWidth="1.5"/>
                 <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="1.5"/>
               </svg>
-              Complexe sportif — Allée de Château-Chinon 6, 5140 Sombreffe
+              {siteConfig.dojoName} — {siteConfig.address}
             </p>
           </div>
 
@@ -66,10 +67,10 @@ export function JoinSection() {
           <div className="hidden lg:flex items-center justify-center">
             <div className="text-center select-none">
               <p className="font-display text-[200px] leading-none text-white/[0.04] tracking-tight">
-                JC
+                {siteConfig.shortInitials}
               </p>
               <p className="font-display text-2xl text-white/20 uppercase tracking-widest -mt-8">
-                Sombreffe
+                {siteConfig.addressCity}
               </p>
             </div>
           </div>

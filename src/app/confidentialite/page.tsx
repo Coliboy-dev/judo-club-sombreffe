@@ -1,12 +1,12 @@
 import { buildMetadata } from "@/lib/seo";
 import { Section } from "@/components/ui/Section";
 import { siteConfig } from "@/data/config";
+import { seoPages } from "@/data/seo";
 
 export async function generateMetadata() {
   return buildMetadata({
-    title: "Politique de confidentialité",
-    description:
-      "Politique de confidentialité du Judo Club Sombreffe. Informations sur la collecte et le traitement de vos données personnelles.",
+    title: seoPages.confidentialite.title,
+    description: seoPages.confidentialite.description,
     path: "/confidentialite",
   });
 }
@@ -44,20 +44,8 @@ export default function ConfidentialitePage() {
           <div className="bg-neutral-50 border border-neutral-100 p-5 mb-8 text-sm text-neutral-700 space-y-1">
             <p><strong>{siteConfig.name}</strong></p>
             <p>{siteConfig.address}</p>
-            {/* TODO client — remplacer par email officiel du club */}
-            <p>
-              Email :{" "}
-              <span className="italic text-neutral-400">
-                [à compléter — email officiel du club]
-              </span>
-            </p>
-            {/* TODO client — remplacer par téléphone officiel */}
-            <p>
-              Téléphone :{" "}
-              <span className="italic text-neutral-400">
-                [à compléter — numéro du club]
-              </span>
-            </p>
+            <p>Email : <a href={`mailto:${siteConfig.email}`} className="text-accent underline">{siteConfig.email}</a></p>
+            <p>Téléphone : <a href={`tel:${siteConfig.phone}`} className="text-accent underline">{siteConfig.phone}</a></p>
           </div>
 
           {/* 2 — Données collectées */}

@@ -5,12 +5,13 @@ import { FaqAccordion } from "@/components/business/FaqAccordion";
 import { ContactForm } from "@/components/business/ContactForm";
 import { buildMetadata } from "@/lib/seo";
 import { courses, faqItems } from "@/data/courses";
+import { siteConfig } from "@/data/config";
+import { seoPages } from "@/data/seo";
 
 export async function generateMetadata() {
   return buildMetadata({
-    title: "Nos Cours",
-    description:
-      "Cours de judo à Sombreffe pour enfants dès 5 ans et adultes. Tous niveaux. Horaires, tarifs et inscription. Premier cours gratuit.",
+    title: seoPages.nosCours.title,
+    description: seoPages.nosCours.description,
     path: "/nos-cours",
   });
 }
@@ -56,7 +57,7 @@ export default function NosCoursPage() {
             <SectionHeader title="Venir essayer" />
             <p className="text-neutral-700 leading-relaxed mb-4">
               Si vous voulez voir à quoi ressemble une séance avant de vous décider, c&apos;est tout à fait possible.
-              Passez, regardez, posez des questions à Jean-Louis. Ou enfilez une tenue de sport et rejoignez le cours — le premier est offert.
+              Passez, regardez, posez des questions à {siteConfig.contactPersonName}. Ou enfilez une tenue de sport et rejoignez le cours — le premier est offert.
             </p>
             <p className="text-neutral-700 leading-relaxed">
               Pas besoin de kimono ni d&apos;expérience. Juste de la curiosité.

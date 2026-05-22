@@ -23,7 +23,7 @@ export async function POST(req: Request) {
 
   const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
-    from: "Site JC Sombreffe <contact@start-onlab.be>",
+    from: `Site ${siteConfig.name} <${siteConfig.emailFrom}>`,
     to: dest,
     replyTo: email,
     subject: coursEssai

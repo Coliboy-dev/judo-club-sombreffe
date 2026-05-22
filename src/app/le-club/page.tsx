@@ -4,12 +4,12 @@ import { Section, SectionHeader } from "@/components/ui/Section";
 import { buildMetadata } from "@/lib/seo";
 import { coaches, clubValues, clubHistory } from "@/data/club";
 import { siteConfig } from "@/data/config";
+import { seoPages } from "@/data/seo";
 
 export async function generateMetadata() {
   return buildMetadata({
-    title: "Le Club",
-    description:
-      "Découvrez l'histoire, les valeurs et l'équipe du Judo Club Sombreffe. Club familial fondé par Jean-Louis Allard.",
+    title: seoPages.leClub.title,
+    description: seoPages.leClub.description,
     path: "/le-club",
   });
 }
@@ -52,11 +52,11 @@ export default function LeClubPage() {
           <div className="relative">
             <div className="bg-primary aspect-square flex items-center justify-center">
               <div className="text-center px-8">
-                <p className="font-display text-8xl text-white leading-none">JC</p>
-                <p className="font-display text-3xl text-accent uppercase mt-2">Sombreffe</p>
+                <p className="font-display text-8xl text-white leading-none">{siteConfig.shortInitials}</p>
+                <p className="font-display text-3xl text-accent uppercase mt-2">{siteConfig.addressCity}</p>
                 <div className="mt-6 w-12 h-0.5 bg-accent mx-auto" aria-hidden="true" />
                 <p className="mt-4 text-neutral-100 text-sm tracking-widest uppercase">
-                  Province de Namur
+                  {siteConfig.region}
                 </p>
               </div>
             </div>
@@ -70,7 +70,7 @@ export default function LeClubPage() {
       <Section background="light">
         <SectionHeader
           title="Nos valeurs"
-          subtitle="Le code moral du judo guide chaque séance, chaque compétition, chaque relation au sein du club."
+          subtitle={`Le code moral du ${siteConfig.sport.toLowerCase()} guide chaque séance, chaque compétition, chaque relation au sein du club.`}
           centered
         />
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
@@ -100,7 +100,7 @@ export default function LeClubPage() {
       <Section background="white">
         <SectionHeader
           title="Notre équipe"
-          subtitle="Sur le tatami depuis 1993."
+          subtitle={`Sur le tatami depuis ${siteConfig.founded}.`}
         />
         <ul
           className={
@@ -160,9 +160,9 @@ export default function LeClubPage() {
                 </svg>
                 <div>
                   <p className="font-semibold text-neutral-900">Entraînements</p>
-                  <p className="text-sm">Mercredi — 17h30 à 20h00</p>
-                  <p className="text-sm">Vendredi — 17h30 à 20h00</p>
-                  <p className="text-sm">Samedi — 10h30 à 12h00</p>
+                  {siteConfig.scheduleDisplay.compact.map((line) => (
+                    <p key={line} className="text-sm">{line}</p>
+                  ))}
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -171,7 +171,7 @@ export default function LeClubPage() {
                 </svg>
                 <div>
                   <p className="font-semibold text-neutral-900">Accès</p>
-                  <p className="text-sm">Parking gratuit sur place. Accès en transports communs depuis la gare de Sombreffe.</p>
+                  <p className="text-sm">{siteConfig.dojoAccess}</p>
                 </div>
               </li>
             </ul>
@@ -180,10 +180,10 @@ export default function LeClubPage() {
           <div className="bg-neutral-100 aspect-video flex items-center justify-center border border-neutral-200 rounded-xl">
             <div className="text-center">
               <MapPin size={40} className="text-neutral-400 mx-auto mb-3" aria-hidden="true" />
-              <p className="text-neutral-700 text-sm font-semibold">Complexe sportif de Sombreffe</p>
-              <p className="text-neutral-400 text-xs mt-1">Allée de Château-Chinon 6, 5140</p>
+              <p className="text-neutral-700 text-sm font-semibold">{siteConfig.dojoName}</p>
+              <p className="text-neutral-400 text-xs mt-1">{siteConfig.addressStreet}, {siteConfig.addressPostalCode}</p>
               <a
-                href="https://maps.google.com/?q=Allée+de+Château-Chinon+6,+5140+Sombreffe"
+                href={siteConfig.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 inline-block text-xs text-accent hover:text-accent-light underline focus-visible:outline-none"

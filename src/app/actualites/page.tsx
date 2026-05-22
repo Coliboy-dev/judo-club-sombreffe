@@ -2,12 +2,12 @@ import { Section, SectionHeader } from "@/components/ui/Section";
 import { NewsFilter } from "@/components/business/NewsFilter";
 import { buildMetadata } from "@/lib/seo";
 import { newsItems } from "@/data/news";
+import { seoPages } from "@/data/seo";
 
 export async function generateMetadata() {
   return buildMetadata({
-    title: "Actualités",
-    description:
-      "Résultats de compétitions, événements et annonces du Judo Club Sombreffe.",
+    title: seoPages.actualites.title,
+    description: seoPages.actualites.description,
     path: "/actualites",
   });
 }

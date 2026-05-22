@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Send, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/data/config";
 
 const schema = z.object({
   nom: z.string().min(2, "Votre nom doit contenir au moins 2 caractères"),
@@ -58,7 +59,7 @@ export function ContactForm({ showTrialCheckbox = true }: ContactFormProps) {
           Message envoyé !
         </h3>
         <p className="text-neutral-700 max-w-sm">
-          Merci pour votre message. Jean-Louis vous répondra dans les meilleurs délais.
+          Merci pour votre message. {siteConfig.contactPersonName} vous répondra dans les meilleurs délais.
         </p>
       </div>
     );
