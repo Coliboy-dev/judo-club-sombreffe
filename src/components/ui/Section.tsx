@@ -55,9 +55,9 @@ export function SectionHeader({
           className={cn(
             "inline-flex items-center gap-2 mb-5 text-xs font-bold uppercase tracking-[0.14em]",
             centered && "justify-center",
-            light ? "text-sand" : "text-sand-dark"
+            light ? "text-sand" : "text-neutral-700"
           )}
-          style={{ color: light ? "var(--color-sand)" : "var(--color-sand-dark)" }}
+          style={{ color: light ? "var(--color-sand)" : "var(--color-neutral-700)" }}
         >
           <span
             className="inline-block w-5 h-px"

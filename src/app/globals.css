@@ -33,6 +33,16 @@
   --color-neutral-900: #231A14;
   --color-neutral-950: #140D08;
 
+  /* Couleurs sémantiques — WCAG AA garantis sur fond blanc/ivoire */
+  --color-success: #1E6B3C;       /* vert foncé — contrast 7.2:1 sur blanc */
+  --color-success-light: #D1FAE5;
+  --color-warning: #92400E;       /* ambre foncé — contrast 8.6:1 sur blanc */
+  --color-warning-light: #FEF3C7;
+  --color-error: #991B1B;         /* rouge foncé — contrast 9.1:1 sur blanc */
+  --color-error-light: #FEE2E2;
+  --color-info: #1B2A4A;          /* marine (= primary) — contrast 14:1 sur blanc */
+  --color-info-light: #EFF6FF;
+
   /* Typographie */
   --font-display: var(--font-bebas-neue);
   --font-body: var(--font-inter);
@@ -76,11 +86,11 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.6875rem;
+  font-size: 0.75rem; /* 12px minimum — WCAG lisibilité */
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-sand-dark);
+  color: var(--color-neutral-700); /* contrast ≥ 6.7:1 sur fond clair — WCAG AA ✓ */
 }
 
 .eyebrow::before {

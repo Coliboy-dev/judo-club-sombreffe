@@ -17,7 +17,7 @@ export function JoinSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Colonne texte */}
           <div>
-            <p className="eyebrow mb-8" style={{ color: "var(--color-sand-dark)" }}>
+            <p className="eyebrow mb-8" style={{ color: "var(--color-neutral-700)" }}>
               Porte ouverte
             </p>
 

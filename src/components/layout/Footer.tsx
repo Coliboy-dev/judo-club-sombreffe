@@ -41,12 +41,12 @@ export function Footer() {
 
           {/* Colonne 2 — Navigation */}
           <div>
-            <h3
+            <p
               className="font-display text-base uppercase tracking-widest mb-5"
               style={{ color: "var(--color-sand)", opacity: 0.5 }}
             >
               Navigation
-            </h3>
+            </p>
             <ul className="space-y-2.5">
               {navLinks.map(({ href, label }) => (
                 <li key={href}>
@@ -64,12 +64,12 @@ export function Footer() {
 
           {/* Colonne 3 — Contact */}
           <div>
-            <h3
+            <p
               className="font-display text-base uppercase tracking-widest mb-5"
               style={{ color: "var(--color-sand)", opacity: 0.5 }}
             >
               Nous trouver
-            </h3>
+            </p>
             <ul className="space-y-3.5">
               <li
                 className="flex items-start gap-3 text-sm"
